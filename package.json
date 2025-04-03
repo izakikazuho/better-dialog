@@ -1,22 +1,25 @@
 {
   "name": "better-dialog",
   "version": "0.1.0",
-  "main": "dist/dialog-lib.cjs",
-  "module": "dist/dialog-lib.js",
-  "types": "dist/types/index.d.ts",
+  "main": "dist/better-dialog.cjs",
+  "module": "dist/better-dialog.js",
+  "types": "dist/ts/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "exports": {
     ".": {
-      "import": "./dist/dialog-lib.js",
-      "require": "./dist/dialog-lib.cjs",
-      "types": "./dist/types/index.d.ts"
+      "import": "./dist/better-dialog.js",
+      "require": "./dist/better-dialog.cjs",
+      "types": "./dist/ts/index.d.ts"
     }
   },
   "scripts": {
-    "build": "tsc && vite build",
-    "dev": "vite"
+    "build": "vite build && tsc",
+    "dev": "vite",
+    "type:only": "tsc --emitDeclarationOnly"
   },
   "author": "izakikazuho",
   "license": "MIT",
