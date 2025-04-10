@@ -26,5 +26,8 @@
   "devDependencies": {
     "typescript": "^5.0.0",
     "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "tua-body-scroll-lock": "^1.5.3"
   }
 }

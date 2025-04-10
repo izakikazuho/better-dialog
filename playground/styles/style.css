@@ -1,0 +1,14 @@
+body {
+  background-image: linear-gradient(cyan, red);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 300vh;
+}
+
+dialog {
+  max-height: 300px;
+  width: 300px;
+}
+
+dialog::backdrop {
+}

@@ -309,6 +309,11 @@ source-map-js@^1.2.1:
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.2.1.tgz#1ce5650fddd87abc099eda37dcff024c2667ae46"
   integrity sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==
 
+tua-body-scroll-lock@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/tua-body-scroll-lock/-/tua-body-scroll-lock-1.5.3.tgz#3f1464d599aea4734f31e0754088acd42804e3e8"
+  integrity sha512-44W12iqek41kZuTdpEUt3JTUsMx0IxfTajXWfQyMLgzsPaMYUPZLcJkwa4P0x24h5DQ3lYvDuYvphBo4+L0t4w==
+
 typescript@^5.0.0:
   version "5.8.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.2.tgz#8170b3702f74b79db2e5a96207c15e65807999e4"
