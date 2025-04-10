@@ -9,6 +9,10 @@ export class DialogItem {
   readonly showClass: string;
   isShow: boolean = false;
 
+  private initHooks: ((dialog: DialogItem) => void)[] = [];
+  private showHooks: ((dialog: DialogItem) => void)[] = [];
+  private closeHooks: ((dialog: DialogItem) => void)[] = [];
+
   constructor(el: HTMLDialogElement, options: DialogOptions) {
     if (!el) {
       throw new Error('Dialog element not found');
@@ -21,7 +25,31 @@ export class DialogItem {
     this.closeButtonEl = el.querySelector<HTMLElement>('[data-better-dialog-close]');
     this.showClass = this.options.showClass || 'is-show';
 
+    this.options.plugins?.forEach((plugin) => {
+      plugin({
+        onInit: (cb) => this.initHooks.push(cb),
+        onShow: (cb) => this.showHooks.push(cb),
+        onClose: (cb) => this.closeHooks.push(cb),
+      });
+    });
+
     this.bindEvents();
+    this.runInitHooks();
+  }
+
+  private runInitHooks() {
+    this.options.on?.show?.(this);
+    this.initHooks.forEach((cb) => cb(this));
+  }
+
+  private runShowHooks() {
+    this.options.on?.show?.(this);
+    this.showHooks.forEach((cb) => cb(this));
+  }
+
+  private runCloseHooks() {
+    this.options.on?.close?.(this);
+    this.closeHooks.forEach((cb) => cb(this));
   }
 
   private bindEvents(): void {
@@ -52,7 +80,7 @@ export class DialogItem {
     this.isShow = true;
     this.el.classList.add(this.showClass);
     this.el.showModal();
-    this.options.on?.show?.(this);
+    this.runShowHooks();
     if (this.options.animation) {
       this.options.animation?.('show', this);
     }
@@ -61,6 +89,7 @@ export class DialogItem {
   close(): void {
     this.isShow = false;
     this.el.classList.remove(this.showClass);
+    this.runCloseHooks();
     if (this.options.animation) {
       this.options.animation('close', this).then(() => {
         this.el.close();
