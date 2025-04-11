@@ -1,6 +1,6 @@
 import type { AnimFunction } from '../types/dialog';
 
-export function css({
+export function cssAnimation({
   duration = 300,
   showClass = 'is-transition-show',
   closeClass = 'is-transition-close',

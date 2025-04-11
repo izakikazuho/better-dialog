@@ -1,7 +1,9 @@
-import { BetterDialog, fade, tuaBodyScrollLockPlugin } from '../src';
+import { BetterDialog } from '../src';
+import { fadeAnimation } from '../src/animations';
+import { tuaBodyScrollLockPlugin } from '../src/plugins';
 
 const dialog = new BetterDialog('#my-dialog', {
-  animation: fade({ duration: 300 }),
+  animation: fadeAnimation({ duration: 300 }),
   on: {
     show: (item) => console.log('opened', item.id),
     close: (item) => console.log('closed', item.id),

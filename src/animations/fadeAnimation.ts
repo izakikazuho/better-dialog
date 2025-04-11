@@ -1,6 +1,6 @@
 import type { AnimFunction } from '../types/dialog';
 
-export function fade({ duration = 300 } = {}): AnimFunction {
+export function fadeAnimation({ duration = 300 } = {}): AnimFunction {
   return async (direction, dialog) => {
     const keyframes = direction === 'show' ? [{ opacity: 0 }, { opacity: 1 }] : [{ opacity: 1 }, { opacity: 0 }];
 

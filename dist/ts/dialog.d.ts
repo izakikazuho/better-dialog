@@ -7,7 +7,13 @@ export declare class DialogItem {
     readonly closeButtonEl: HTMLElement | null;
     readonly showClass: string;
     isShow: boolean;
+    private initHooks;
+    private showHooks;
+    private closeHooks;
     constructor(el: HTMLDialogElement, options: DialogOptions);
+    private runInitHooks;
+    private runShowHooks;
+    private runCloseHooks;
     private bindEvents;
     show(): void;
     close(): void;
