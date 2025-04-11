@@ -12,11 +12,17 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: 'Better Dialog',
-      fileName: 'better-dialog',
       formats: ['es', 'cjs'],
+      fileName: (format) => {
+        return format === 'es'
+          ? 'better-dialog.js'
+          : format === 'cjs'
+          ? 'better-dialog.cjs'
+          : `better-dialog.${format}.js`;
+      },
     },
     rollupOptions: {
-      external: [],
+      external: ['tua-body-scroll-lock'],
       output: {
         banner,
       },
