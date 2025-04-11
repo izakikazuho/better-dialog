@@ -5,7 +5,7 @@ description: API reference for animation helpers and custom animation functions.
 
 This page documents the animation utilities available in Better Dialog.
 
-You can use built-in animation helpers like `fade()` and `css()`, or supply your own custom animation function.
+You can use built-in animation helpers like `fadeAnimation()` and `cssAnimation()`, or supply your own custom animation function.
 
 ---
 
@@ -24,10 +24,10 @@ You may return a `Promise<void>` to delay the lifecycle (e.g. wait for a transit
 
 ## Built-in Helpers
 
-### fade(options?)
+### fadeAnimation(options?)
 
 ```ts
-fade({ duration?: number }): AnimFunction
+fadeAnimation({ duration?: number }): AnimFunction
 ```
 
 Fades in/out the dialog and its backdrop using the Web Animations API.
@@ -36,10 +36,10 @@ Fades in/out the dialog and its backdrop using the Web Animations API.
 
 ---
 
-### css(options)
+### cssAnimation(options)
 
 ```ts
-css({
+cssAnimation({
   duration?: number,
   showClass?: string,
   closeClass?: string
@@ -54,10 +54,10 @@ Applies and removes CSS classes to animate the dialog using your own styles.
 
 ---
 
-### custom(fn)
+### customAnimation(fn)
 
 ```ts
-custom(fn: AnimFunction): AnimFunction
+customAnimation(fn: AnimFunction): AnimFunction
 ```
 
 Wraps a user-defined animation function.  
@@ -75,7 +75,16 @@ You can define your own animation logic using the `AnimFunction` type.
 const myAnim: AnimFunction = (direction, dialog) => {
   const el = dialog.el;
 
-  const keyframes = direction === 'show' ? [{ opacity: 0 }, { opacity: 1 }] : [{ opacity: 1 }, { opacity: 0 }];
+  const keyframes =
+    direction === 'show'
+      ? [
+          { scale: 0, opacity: 0 },
+          { scale: 1, opacity: 1 },
+        ]
+      : [
+          { scale: 1, opacity: 1 },
+          { scale: 0, opacity: 0 },
+        ];
 
   const anim = el.animate(keyframes, { duration: 200 });
   return anim.finished.then(() => {});
@@ -85,10 +94,10 @@ const myAnim: AnimFunction = (direction, dialog) => {
 ### Using with BetterDialog
 
 ```ts
-import { custom } from 'better-dialog';
+import { customAnimation } from 'better-dialog';
 
 new BetterDialog('#dialog', {
-  animation: custom(myAnim),
+  animation: customAnimation(myAnim),
 });
 ```
 

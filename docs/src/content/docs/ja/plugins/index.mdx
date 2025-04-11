@@ -56,14 +56,10 @@ iOS Safari を含む多くの環境で安定したスクロール抑制が可能
 ### 使用例
 
 ```ts
-import { tuaBodyScrollLockPlugin } from 'better-dialog/plugins/tua-body-scroll-lock';
+import { tuaBodyScrollLockPlugin } from 'better-dialog/plugins';
 
 new BetterDialog('#my-dialog', {
-  plugins: [
-    tuaBodyScrollLockPlugin({
-      reserveScrollBarGap: true,
-    }),
-  ],
+  plugins: [tuaBodyScrollLockPlugin()],
 });
 ```
 

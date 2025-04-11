@@ -56,14 +56,10 @@ Better Dialog includes a built-in scroll lock plugin based on [`tua-body-scroll-
 ### Usage
 
 ```ts
-import { tuaBodyScrollLockPlugin } from 'better-dialog/plugins/tua-body-scroll-lock';
+import { tuaBodyScrollLockPlugin } from 'better-dialog/plugins';
 
 new BetterDialog('#my-dialog', {
-  plugins: [
-    tuaBodyScrollLockPlugin({
-      reserveScrollBarGap: true,
-    }),
-  ],
+  plugins: [tuaBodyScrollLockPlugin()],
 });
 ```
 

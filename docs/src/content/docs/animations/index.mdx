@@ -6,22 +6,22 @@ description: Learn how to add transitions to your modals using built-in helpers.
 Better Dialog supports animations for opening and closing modals via a simple, plugin-like API.  
 You can choose between built-in helpers or write your own.
 
-This page covers the built-in `fade()` and `css()` animation utilities.
+This page covers the built-in `fade()Animation` and `css()Animation` animation utilities.
 
 ---
 
-## Using `fade()`
+## Using `fadeAnimation()`
 
-The `fade()` animation uses the Web Animations API to smoothly fade the modal and its backdrop in and out.
+The `fadeAnimation()` animation uses the Web Animations API to smoothly fade the modal and its backdrop in and out.
 
 ### Example
 
 ```ts
 import { BetterDialog } from 'better-dialog';
-import { fade } from 'better-dialog';
+import { fadeAnimation } from 'better-dialog/animations';
 
 new BetterDialog('#my-dialog', {
-  animation: fade({ duration: 300 }),
+  animation: fadeAnimation({ duration: 300 }),
 });
 ```
 
@@ -33,18 +33,19 @@ new BetterDialog('#my-dialog', {
 
 ---
 
-## Using `css()`
+## Using `cssAnimation()`
 
-If you prefer to define your own animations in CSS, use the `css()` helper.  
+If you prefer to define your own animations in CSS, use the `cssAnimation()` helper.  
 This simply adds and removes CSS classes for "show" and "close" transitions.
 
 ### Example
 
 ```ts
-import { css } from 'better-dialog';
+import { BetterDialog } from 'better-dialog';
+import { cssAnimation } from 'better-dialog/animations';
 
 new BetterDialog('#my-dialog', {
-  animation: css({
+  animation: cssAnimation({
     duration: 300,
     showClass: 'fade-in',
     closeClass: 'fade-out',

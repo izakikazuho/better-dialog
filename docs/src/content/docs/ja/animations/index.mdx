@@ -4,24 +4,24 @@ description: 組み込みのフェードやCSSを使って、モーダルにト�
 ---
 
 Better Dialog は、モーダルの開閉にアニメーションを付けるためのシンプルな API を提供しています。  
-組み込みの `fade()` や `css()` を使えば、すぐに視覚的な演出を加えることができます。
+組み込みの `fadeAnimation()` や `cssAnimation()` を使えば、すぐに視覚的な演出を加えることができます。
 
 このページでは、組み込みのアニメーションユーティリティの使い方を解説します。
 
 ---
 
-## `fade()` を使う
+## `fadeAnimation()` を使う
 
-`fade()` は Web Animations API を使って、ダイアログ本体と背景（backdrop）をフェードイン／フェードアウトします。
+`fadeAnimation()` は Web Animations API を使って、ダイアログ本体と背景（backdrop）をフェードイン／フェードアウトします。
 
 ### 使用例
 
 ```ts
 import { BetterDialog } from 'better-dialog';
-import { fade } from 'better-dialog';
+import { fadeAnimation } from 'better-dialog/animations';
 
 new BetterDialog('#my-dialog', {
-  animation: fade({ duration: 300 }),
+  animation: fadeAnimation({ duration: 300 }),
 });
 ```
 
@@ -33,15 +33,16 @@ new BetterDialog('#my-dialog', {
 
 ---
 
-## `css()` を使う
+## `cssAnimation()` を使う
 
-CSS によるアニメーションを使いたい場合は、`css()` を利用します。  
+CSS によるアニメーションを使いたい場合は、`cssAnimation()` を利用します。  
 これは開閉時に指定したクラスを追加・削除することで、スタイル側で自由に制御できます。
 
 ### 使用例
 
 ```ts
-import { css } from 'better-dialog';
+import { BetterDialog } from 'better-dialog';
+import { cssAnimation } from 'better-dialog/animations';
 
 new BetterDialog('#my-dialog', {
   animation: css({
