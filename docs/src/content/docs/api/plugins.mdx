@@ -1,0 +1,29 @@
+---
+title: Plugins
+description: Extend Better Dialog via plugin functions.
+---
+
+You can extend BetterDialog behavior by passing plugin functions via `options.plugins`.
+
+## Plugin Signature
+
+```ts
+type DialogPlugin = (hooks: {
+  onInit: (cb: (dialog: DialogItem) => void) => void;
+  onShow: (cb: (dialog: DialogItem) => void) => void;
+  onClose: (cb: (dialog: DialogItem) => void) => void;
+}) => void;
+```
+
+## Example
+
+```ts
+const scrollLockPlugin: DialogPlugin = ({ onShow, onClose }) => {
+  onShow((dialog) => {
+    document.body.style.overflow = 'hidden';
+  });
+  onClose((dialog) => {
+    document.body.style.overflow = '';
+  });
+};
+```

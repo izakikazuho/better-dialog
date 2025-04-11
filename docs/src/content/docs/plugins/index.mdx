@@ -1,0 +1,66 @@
+---
+title: Plugins
+description: Learn how to extend Better Dialog using plugins.
+---
+
+Better Dialog supports plugins to let you extend or customize its behavior in a clean and modular way.
+
+A plugin is simply a function that hooks into the lifecycle events of a `DialogItem`.
+
+---
+
+## Plugin Hook Summary
+
+Each plugin receives a hooks object with the following functions:
+
+```ts
+type DialogPlugin = (hooks: {
+  onInit: (cb: (dialog: DialogItem) => void) => void;
+  onShow: (cb: (dialog: DialogItem) => void) => void;
+  onClose: (cb: (dialog: DialogItem) => void) => void;
+}) => void;
+```
+
+| Hook      | When it runs                      |
+| --------- | --------------------------------- |
+| `onInit`  | Once when `DialogItem` is created |
+| `onShow`  | After `.show()` is called         |
+| `onClose` | After `.close()` is called        |
+
+---
+
+## Example: Scroll Lock Plugin
+
+```ts
+const scrollLockPlugin: DialogPlugin = ({ onShow, onClose }) => {
+  onShow((dialog) => {
+    document.body.style.overflow = 'hidden';
+  });
+
+  onClose((dialog) => {
+    document.body.style.overflow = '';
+  });
+};
+
+new BetterDialog('#my-dialog', {
+  plugins: [scrollLockPlugin()],
+});
+```
+
+---
+
+## Built-in Plugin: `tuaBodyScrollLockPlugin`
+
+Better Dialog includes a built-in scroll lock plugin based on [`tua-body-scroll-lock`](https://github.com/tuax/tua-body-scroll-lock), a lightweight utility that handles iOS and desktop scroll locking reliably.
+
+### Usage
+
+```ts
+import { tuaBodyScrollLockPlugin } from 'better-dialog/plugins';
+
+new BetterDialog('#my-dialog', {
+  plugins: [tuaBodyScrollLockPlugin()],
+});
+```
+
+This plugin calls `lock(dialog.el, options)` on show and `unlock(dialog.el)` on close.

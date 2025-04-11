@@ -1,0 +1,114 @@
+/* Dark mode colors. */
+:root {
+  --sl-color-accent-low: #082a27;
+  --sl-color-accent: #007a72;
+  --sl-color-accent-high: #add1cc;
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #eceef2;
+  --sl-color-gray-2: #c0c2c7;
+  --sl-color-gray-3: #888b96;
+  --sl-color-gray-4: #545861;
+  --sl-color-gray-5: #353841;
+  --sl-color-gray-6: #24272f;
+  --sl-color-black: #17181c;
+  --backdrop-bg-color: rgba(255, 255, 255, 0.1);
+}
+/* Light mode colors. */
+:root[data-theme='light'] {
+  --sl-color-accent-low: #c3ddda;
+  --sl-color-accent: #00786f;
+  --sl-color-accent-high: #003b36;
+  --sl-color-white: #17181c;
+  --sl-color-gray-1: #24272f;
+  --sl-color-gray-2: #353841;
+  --sl-color-gray-3: #545861;
+  --sl-color-gray-4: #888b96;
+  --sl-color-gray-5: #c0c2c7;
+  --sl-color-gray-6: #eceef2;
+  --sl-color-gray-7: #f5f6f8;
+  --sl-color-black: #ffffff;
+  --backdrop-bg-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'LINESeedSans';
+  &:has(dialog[open]) {
+    scrollbar-gutter: stable;
+  }
+}
+
+body:lang(ja) {
+  font-family: 'LINESeedJPStd';
+  /* font-weight: 600; */
+}
+
+dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto !important;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 0;
+  }
+}
+
+.better-dialog {
+  border: none;
+  width: 800px;
+  max-width: 80%;
+  box-sizing: border-box;
+  background-color: transparent;
+  overflow: hidden;
+  padding: 0;
+
+  &::backdrop {
+    background-color: var(--backdrop-bg-color);
+    backdrop-filter: blur(4px);
+  }
+}
+
+.better-dialog__content {
+  font-weight: 600;
+  max-height: 300px;
+  padding: 3rem;
+  width: 100%;
+  background-color: var(--sl-color-black);
+  border-radius: 0.25rem;
+  overflow-y: scroll;
+  margin-top: 0 !important;
+}
+
+.better-dialog__close {
+  /* reset */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  /* end reset */
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 100%;
+  padding: 0.8rem;
+  font-size: 1.6rem;
+  --sl-icon-color: var(--sl-color-accent);
+}

@@ -1,0 +1,91 @@
+---
+title: Animations
+description: Learn how to add transitions to your modals using built-in helpers.
+---
+
+Better Dialog supports animations for opening and closing modals via a simple, plugin-like API.  
+You can choose between built-in helpers or write your own.
+
+This page covers the built-in `fade()Animation` and `css()Animation` animation utilities.
+
+---
+
+## Using `fadeAnimation()`
+
+The `fadeAnimation()` animation uses the Web Animations API to smoothly fade the modal and its backdrop in and out.
+
+### Example
+
+```ts
+import { BetterDialog } from 'better-dialog';
+import { fadeAnimation } from 'better-dialog/animations';
+
+new BetterDialog('#my-dialog', {
+  animation: fadeAnimation({ duration: 300 }),
+});
+```
+
+### What it does
+
+- Fades in the `<dialog>` element from `opacity: 0` to `opacity: 1`
+- Animates the `::backdrop` pseudo-element as well
+- Works in modern browsers that support `Element.animate()`
+
+---
+
+## Using `cssAnimation()`
+
+If you prefer to define your own animations in CSS, use the `cssAnimation()` helper.  
+This simply adds and removes CSS classes for "show" and "close" transitions.
+
+### Example
+
+```ts
+import { BetterDialog } from 'better-dialog';
+import { cssAnimation } from 'better-dialog/animations';
+
+new BetterDialog('#my-dialog', {
+  animation: cssAnimation({
+    duration: 300,
+    showClass: 'fade-in',
+    closeClass: 'fade-out',
+  }),
+});
+```
+
+### Sample CSS
+
+```css
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+```
+
+---
+
+## Writing Custom Animations
+
+You can also create your own animation function if needed.  
+See the [API Reference](/api/animations) for how to implement a custom `AnimFunction`.

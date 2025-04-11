@@ -1,0 +1,91 @@
+---
+title: アニメーション
+description: 組み込みのフェードやCSSを使って、モーダルにトランジションを追加しましょう。
+---
+
+Better Dialog は、モーダルの開閉にアニメーションを付けるためのシンプルな API を提供しています。  
+組み込みの `fadeAnimation()` や `cssAnimation()` を使えば、すぐに視覚的な演出を加えることができます。
+
+このページでは、組み込みのアニメーションユーティリティの使い方を解説します。
+
+---
+
+## `fadeAnimation()` を使う
+
+`fadeAnimation()` は Web Animations API を使って、ダイアログ本体と背景（backdrop）をフェードイン／フェードアウトします。
+
+### 使用例
+
+```ts
+import { BetterDialog } from 'better-dialog';
+import { fadeAnimation } from 'better-dialog/animations';
+
+new BetterDialog('#my-dialog', {
+  animation: fadeAnimation({ duration: 300 }),
+});
+```
+
+### 動作内容
+
+- `<dialog>` 要素を `opacity: 0` → `opacity: 1` に変化
+- `::backdrop` 疑似要素も一緒にアニメーション
+- `Element.animate()` に対応したモダンブラウザで動作
+
+---
+
+## `cssAnimation()` を使う
+
+CSS によるアニメーションを使いたい場合は、`cssAnimation()` を利用します。  
+これは開閉時に指定したクラスを追加・削除することで、スタイル側で自由に制御できます。
+
+### 使用例
+
+```ts
+import { BetterDialog } from 'better-dialog';
+import { cssAnimation } from 'better-dialog/animations';
+
+new BetterDialog('#my-dialog', {
+  animation: css({
+    duration: 300,
+    showClass: 'fade-in',
+    closeClass: 'fade-out',
+  }),
+});
+```
+
+### サンプル CSS
+
+```css
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+```
+
+---
+
+## カスタムアニメーションを使いたい場合
+
+独自のアニメーション関数を定義して使うことも可能です。  
+実装方法は [API リファレンス](/ja/api/animations) をご覧ください。

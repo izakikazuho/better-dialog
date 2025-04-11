@@ -1,0 +1,58 @@
+---
+title: Getting Started
+description: A guide in my new Starlight docs site.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Installation
+
+<Tabs>
+  <TabItem label="npm">
+    ```bash
+
+    npm install better-dialog
+
+    ```
+
+  </TabItem>
+  <TabItem label="yarn">
+    ```bash
+
+    yarn add better-dialog
+
+    ```
+
+  </TabItem>
+</Tabs>
+
+## Basic Usage
+
+### 1. Write the HTML
+
+```html
+<button data-better-dialog-show="my-dialog">Open Dialog</button>
+
+<dialog id="my-dialog">
+  <p>Hello, world!</p>
+  <button data-better-dialog-close>Close</button>
+</dialog>
+```
+
+### 2. Initialize with JavaScript
+
+```js
+import { BetterDialog } from 'better-dialog';
+
+new BetterDialog('#my-dialog');
+```
+
+That's it — you now have a working modal, powered by the native `<dialog>` element.
+
+:::note
+Better Dialog does **not include any CSS styles by default**.
+It only controls dialog behavior and accessibility — styling is completely up to you.
+
+This design gives you full control and avoids style conflicts in your project.
+
+:::

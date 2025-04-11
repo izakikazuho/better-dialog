@@ -1,0 +1,110 @@
+---
+title: Animations
+description: API reference for animation helpers and custom animation functions.
+---
+
+This page documents the animation utilities available in Better Dialog.
+
+You can use built-in animation helpers like `fadeAnimation()` and `cssAnimation()`, or supply your own custom animation function.
+
+---
+
+## AnimFunction
+
+All animations must conform to the following type:
+
+```ts
+type AnimFunction = (direction: 'show' | 'close', dialog: DialogItem) => Promise<void>;
+```
+
+The `direction` will be `"show"` when a dialog is being opened, and `"close"` when it's being closed.  
+You may return a `Promise<void>` to delay the lifecycle (e.g. wait for a transition).
+
+---
+
+## Built-in Helpers
+
+### fadeAnimation(options?)
+
+```ts
+fadeAnimation({ duration?: number }): AnimFunction
+```
+
+Fades in/out the dialog and its backdrop using the Web Animations API.
+
+- `duration` (default: `300`) — animation duration in milliseconds
+
+---
+
+### cssAnimation(options)
+
+```ts
+cssAnimation({
+  duration?: number,
+  showClass?: string,
+  closeClass?: string
+}): AnimFunction
+```
+
+Applies and removes CSS classes to animate the dialog using your own styles.
+
+- `showClass` (default: `'is-transition-show'`)
+- `closeClass` (default: `'is-transition-close'`)
+- `duration` in milliseconds
+
+---
+
+### customAnimation(fn)
+
+```ts
+customAnimation(fn: AnimFunction): AnimFunction
+```
+
+Wraps a user-defined animation function.  
+This is a helper and is not strictly required — you can pass your function directly to `options.animation`.
+
+---
+
+## Custom Animations
+
+You can define your own animation logic using the `AnimFunction` type.
+
+### Example
+
+```ts
+const myAnim: AnimFunction = (direction, dialog) => {
+  const el = dialog.el;
+
+  const keyframes =
+    direction === 'show'
+      ? [
+          { scale: 0, opacity: 0 },
+          { scale: 1, opacity: 1 },
+        ]
+      : [
+          { scale: 1, opacity: 1 },
+          { scale: 0, opacity: 0 },
+        ];
+
+  const anim = el.animate(keyframes, { duration: 200 });
+  return anim.finished.then(() => {});
+};
+```
+
+### Using with BetterDialog
+
+```ts
+import { customAnimation } from 'better-dialog';
+
+new BetterDialog('#dialog', {
+  animation: customAnimation(myAnim),
+});
+```
+
+Or simply:
+
+```ts
+new BetterDialog('#dialog', {
+  animation: myAnim,
+});
+```

@@ -1,0 +1,64 @@
+@font-face {
+  font-family: LINESeedSans;
+  src: local('※'), url(./fonts/LINESeedSans_W_Th.woff) format('woff'),
+    url(./fonts/LINESeedSans_W_Th.woff2) format('woff2');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: LINESeedSans;
+  src: local('※'), url(./fonts/LINESeedSans_W_Rg.woff) format('woff'),
+    url(./fonts/LINESeedSans_W_Rg.woff2) format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: LINESeedSans;
+  src: local('※'), url(./fonts/LINESeedSans_W_Bd.woff) format('woff'),
+    url(./fonts/LINESeedSans_W_Bd.woff2) format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: LINESeedSans;
+  src: local('※'), url(./fonts/LINESeedSans_W_He.woff) format('woff'),
+    url(./fonts/LINESeedSans_W_He.woff2) format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: LINESeedSans;
+  src: local('※'), url(./fonts/LINESeedSans_W_XBd.woff) format('woff'),
+    url(./fonts/LINESeedSans_W_XBd.woff2) format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: LINESeedJPStd;
+  src: local('※'), url(./fonts/LINESeedJP_OTF_Th.woff) format('woff'),
+    url(./fonts/LINESeedJP_OTF_Th.woff2) format('woff2');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: LINESeedJPStd;
+  src: local('※'), url(./fonts/LINESeedJP_OTF_Rg.woff) format('woff'),
+    url(./fonts/LINESeedJP_OTF_Rg.woff2) format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: LINESeedJPStd;
+  src: local('※'), url(./fonts/LINESeedJP_OTF_Bd.woff) format('woff'),
+    url(./fonts/LINESeedJP_OTF_Bd.woff2) format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: LINESeedJPStd;
+  src: local('※'), url(./fonts/LINESeedJP_OTF_Eb.woff) format('woff'),
+    url(./fonts/LINESeedJP_OTF_Eb.woff2) format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}

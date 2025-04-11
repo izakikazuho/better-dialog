@@ -1,0 +1,66 @@
+---
+title: プラグイン
+description: プラグインを使って Better Dialog の機能を拡張しましょう。
+---
+
+Better Dialog は、プラグインを通じて挙動を拡張・カスタマイズできます。  
+プラグインは `DialogItem` のライフサイクルにフックする関数として定義されます。
+
+---
+
+## フック一覧
+
+プラグインには以下のフック関数が提供されます：
+
+```ts
+type DialogPlugin = (hooks: {
+  onInit: (cb: (dialog: DialogItem) => void) => void;
+  onShow: (cb: (dialog: DialogItem) => void) => void;
+  onClose: (cb: (dialog: DialogItem) => void) => void;
+}) => void;
+```
+
+| フック名  | 実行タイミング                        |
+| --------- | ------------------------------------- |
+| `onInit`  | `DialogItem` の初期化時に一度だけ実行 |
+| `onShow`  | `.show()` 実行後に実行                |
+| `onClose` | `.close()` 実行後に実行               |
+
+---
+
+## 例：スクロールロックプラグイン
+
+```ts
+const scrollLockPlugin: DialogPlugin = ({ onShow, onClose }) => {
+  onShow((dialog) => {
+    document.body.style.overflow = 'hidden';
+  });
+
+  onClose((dialog) => {
+    document.body.style.overflow = '';
+  });
+};
+
+new BetterDialog('#my-dialog', {
+  plugins: [scrollLockPlugin()],
+});
+```
+
+---
+
+## 組み込みプラグイン：`tuaBodyScrollLockPlugin`
+
+[`tua-body-scroll-lock`](https://github.com/tuax/tua-body-scroll-lock) を使った、組み込みのスクロールロックプラグインです。  
+iOS Safari を含む多くの環境で安定したスクロール抑制が可能です。
+
+### 使用例
+
+```ts
+import { tuaBodyScrollLockPlugin } from 'better-dialog/plugins';
+
+new BetterDialog('#my-dialog', {
+  plugins: [tuaBodyScrollLockPlugin()],
+});
+```
+
+`show` 時に `lock(dialog.el, options)` を、`close` 時に `unlock(dialog.el)` を実行します。
