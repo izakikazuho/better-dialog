@@ -14,6 +14,14 @@
       "import": "./dist/better-dialog.js",
       "require": "./dist/better-dialog.cjs",
       "types": "./dist/ts/index.d.ts"
+    },
+    "./animations": {
+      "import": "./dist/animations/index.js",
+      "types": "./dist/ts/animations/index.d.ts"
+    },
+    "./plugins": {
+      "import": "./dist/plugins/index.js",
+      "types": "./dist/ts/plugins/index.d.ts"
     }
   },
   "scripts": {
