@@ -22,7 +22,8 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -46,3 +47,5 @@ Temporary Items
 # Node.js
 node_modules
 
+# Dist
+dist
