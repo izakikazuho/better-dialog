@@ -1,0 +1,48 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+---
+
+<script>
+  import { BetterDialog, fade, tuaBodyScrollLockPlugin } from '../../../src';
+
+  const dialog = new BetterDialog('#sample-dialog1', {
+    animation: fade({ duration: 300 }),
+    on: {
+      show: (item) => console.log('opened', item.id),
+      close: (item) => console.log('closed', item.id),
+    },
+    plugins: [tuaBodyScrollLockPlugin({ overflowType: 'clip' })],
+  });
+</script>
+
+<div class="sample1">
+  <button data-better-dialog-show="sample-dialog1">Open Modal</button>
+  <dialog class="better-dialog" id="sample-dialog1" aria-labelledby="sample-dialog1__label">
+    <button class="better-dialog__close" data-better-dialog-close aria-label="close" autofocus>
+      <Icon name="close" />
+    </button>
+    <div class="better-dialog__content">
+      <h2 id="sample-dialog1__label">Hello, I'm Better Dialog :)</h2>
+      <p>
+        I’m lightweight, accessible, and natively fluent in <code>&lt;dialog&gt;</code>. You could say I like to keep
+        things simple — no flashy frameworks, just clean markup and smooth behavior.
+      </p>
+      <p>
+        Whether you're building a sleek product UI or just need a friendly little popup, I’m here to help. I come with
+        animations, plugin hooks, and just enough customization to feel like your own.
+      </p>
+      <p>
+        Try resizing me, navigating with the keyboard, or even closing me with the <kbd>Escape</kbd> key. I promise I won’t
+        take it personally.
+      </p>
+      <p>
+        Scroll a little further if you like — I’m not just a pretty face. Under the hood, I embrace native HTML
+        semantics and keep dependencies to a minimum.
+      </p>
+      <p>
+        Thanks for checking me out. When you’re ready, hit that “Close” button — I’ll be right here when you need me
+        again.
+      </p>
+    </div>
+  </dialog>
+</div>

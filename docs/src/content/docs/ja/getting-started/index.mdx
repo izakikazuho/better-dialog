@@ -1,0 +1,58 @@
+---
+title: 導入方法
+description: Better Dialog のインストールと基本的な使い方を解説します。
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+## インストール
+
+<Tabs>
+  <TabItem label="npm">
+    ```bash
+
+    npm install better-dialog
+
+    ```
+
+  </TabItem>
+  <TabItem label="yarn">
+    ```bash
+
+    yarn add better-dialog
+
+    ```
+
+  </TabItem>
+</Tabs>
+
+## 基本の使い方
+
+### 1. HTML を記述する
+
+```html
+<button data-better-dialog-show="my-dialog">Open Dialog</button>
+
+<dialog id="my-dialog">
+  <p>Hello, world!</p>
+  <button data-better-dialog-close>Close</button>
+</dialog>
+```
+
+### 2. JavaScript で初期化する
+
+```js
+import { BetterDialog } from 'better-dialog';
+
+new BetterDialog('#my-dialog');
+```
+
+これだけで、ネイティブの `<dialog>` 要素を活用したモーダルがすぐに使えるようになります。
+
+:::note
+Better Dialog は、**CSS スタイルを一切含んでいません**。
+
+制御しているのはモーダルの動作とアクセシビリティのみで、見た目に関するスタイルはすべて利用者側で定義する必要があります。
+
+この設計により、あなたのデザインやフレームワークと干渉せず、柔軟にカスタマイズできます。
+:::

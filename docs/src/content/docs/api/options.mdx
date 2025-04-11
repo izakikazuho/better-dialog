@@ -1,0 +1,24 @@
+---
+title: DialogOptions
+description: Configuration options for each dialog instance.
+---
+
+```ts
+interface DialogOptions {
+  showClass?: string;
+  on?: {
+    show?: (dialog: DialogItem) => void;
+    close?: (dialog: DialogItem) => void;
+  };
+  animation?: AnimFunction | false;
+  plugins?: DialogPlugin[];
+}
+```
+
+## Fields
+
+- `showClass`: A CSS class to apply when the dialog is shown.
+- `on.show`: Called after the dialog opens.
+- `on.close`: Called after the dialog closes.
+- `animation`: A function that handles open/close animations.
+- `plugins`: List of dialog plugins.

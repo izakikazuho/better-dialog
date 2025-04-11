@@ -1,0 +1,30 @@
+---
+title: BetterDialog
+description: The main class to initialize dialogs.
+---
+
+The entry point of the library. You can use it to initialize one or more dialog elements.
+
+## Constructor
+
+```ts
+new BetterDialog(
+  target: string | HTMLDialogElement | HTMLDialogElement[] | NodeList,
+  options?: DialogOptions
+)
+```
+
+## Properties
+
+- `dialogItems: DialogItem[]` — An array of dialog instances.
+- `els: HTMLDialogElement[]` — The raw dialog elements.
+
+## Methods
+
+### getDialogItemById
+
+```ts
+getDialogItemById(id: string): DialogItem | undefined
+```
+
+Returns the DialogItem instance matching the given `id`.
