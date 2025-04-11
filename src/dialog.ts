@@ -89,15 +89,14 @@ export class DialogItem {
   close(): void {
     this.isShow = false;
     this.el.classList.remove(this.showClass);
-    this.runCloseHooks();
     if (this.options.animation) {
       this.options.animation('close', this).then(() => {
         this.el.close();
-        this.options.on?.close?.(this);
+        this.runCloseHooks();
       });
     } else {
       this.el.close();
-      this.options.on?.close?.(this);
+      this.runCloseHooks();
     }
   }
 }
