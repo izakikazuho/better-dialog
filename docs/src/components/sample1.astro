@@ -3,9 +3,9 @@ import { Icon } from '@astrojs/starlight/components';
 ---
 
 <script>
-  import { BetterDialog } from 'better-dialog';
-  import { fadeAnimation } from '../../../src/animations';
-  import { tuaBodyScrollLockPlugin } from '../../../src/plugins';
+  import { BetterDialog } from '@haebaragi/better-dialog';
+  import { fadeAnimation } from '@haebaragi/better-dialog/animations';
+  import { tuaBodyScrollLockPlugin } from '@haebaragi/better-dialog/plugins';
 
   const dialog = new BetterDialog('#sample-dialog1', {
     animation: fadeAnimation({ duration: 300 }),

@@ -324,6 +324,13 @@
   dependencies:
     "@expressive-code/core" "^0.40.2"
 
+"@haebaragi/better-dialog@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@haebaragi/better-dialog/-/better-dialog-0.1.0.tgz#2408186df91eb581366e55c191e30a974c07993a"
+  integrity sha512-G+xv48jxApplVSYsCKE5XZU5NYXFRHrTNtAuKX229U5LVClcQCTh06YyT28YnlK4iKUBZGdXIfvjblPDuffQjA==
+  dependencies:
+    tua-body-scroll-lock "^1.5.3"
+
 "@img/sharp-darwin-arm64@0.33.5":
   version "0.33.5"
   resolved "https://registry.yarnpkg.com/@img/sharp-darwin-arm64/-/sharp-darwin-arm64-0.33.5.tgz#ef5b5a07862805f1e8145a377c8ba6e98813ca08"
@@ -1018,12 +1025,6 @@ bcp-47@^2.1.0:
     is-alphabetical "^2.0.0"
     is-alphanumerical "^2.0.0"
     is-decimal "^2.0.0"
-
-"better-dialog@github:izakikazuho/better-dialog":
-  version "1.0.0"
-  resolved "https://codeload.github.com/izakikazuho/better-dialog/tar.gz/005491a90ccd70acbc3e7cd9a8cf8baa9c3e8518"
-  dependencies:
-    tua-body-scroll-lock "^1.5.3"
 
 bl@^4.0.3:
   version "4.1.0"
