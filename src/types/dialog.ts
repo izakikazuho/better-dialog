@@ -3,6 +3,7 @@ import type { DialogItem } from '../dialog';
 export interface DialogOptions {
   readonly showClass?: string;
   readonly on?: {
+    init?: (dialog: DialogItem) => void;
     show?: (dialog: DialogItem) => void;
     close?: (dialog: DialogItem) => void;
   };

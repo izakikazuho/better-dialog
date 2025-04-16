@@ -38,7 +38,7 @@ export class DialogItem {
   }
 
   private runInitHooks() {
-    this.options.on?.show?.(this);
+    this.options.on?.init?.(this);
     this.initHooks.forEach((cb) => cb(this));
   }
 
@@ -87,16 +87,18 @@ export class DialogItem {
   }
 
   close(): void {
-    this.isShow = false;
-    this.el.classList.remove(this.showClass);
-    if (this.options.animation) {
-      this.options.animation('close', this).then(() => {
+    if (this.isShow) {
+      this.isShow = false;
+      this.el.classList.remove(this.showClass);
+      if (this.options.animation) {
+        this.options.animation('close', this).then(() => {
+          this.el.close();
+          this.runCloseHooks();
+        });
+      } else {
         this.el.close();
         this.runCloseHooks();
-      });
-    } else {
-      this.el.close();
-      this.runCloseHooks();
+      }
     }
   }
 }
