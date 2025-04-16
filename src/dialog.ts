@@ -38,7 +38,7 @@ export class DialogItem {
   }
 
   private runInitHooks() {
-    this.options.on?.show?.(this);
+    this.options.on?.init?.(this);
     this.initHooks.forEach((cb) => cb(this));
   }
 

@@ -8,7 +8,33 @@
   <body>
     <button data-better-dialog-show="my-dialog" aria-controls="my-dialog">Open Dialog</button>
 
-    <dialog id="my-dialog" autofocus aria-labelledby="my-dialog__title" aria-describedby="my-dialog__description">
+    <dialog
+      id="my-dialog"
+      class="js-dialog"
+      autofocus
+      aria-labelledby="my-dialog__title"
+      aria-describedby="my-dialog__description"
+    >
+      <h2 class="" id="my-dialog__title">Hello!</h2>
+      <p id="my-dialog__description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.
+      </p>
+      <button data-better-dialog-close>Close</button>
+    </dialog>
+
+    <button data-better-dialog-show="my-dialog-2" aria-controls="my-dialog-2">Open Dialog</button>
+
+    <dialog
+      id="my-dialog-2"
+      class="js-dialog"
+      autofocus
+      aria-labelledby="my-dialog__title"
+      aria-describedby="my-dialog__description"
+    >
       <h2 class="" id="my-dialog__title">Hello!</h2>
       <p id="my-dialog__description">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
