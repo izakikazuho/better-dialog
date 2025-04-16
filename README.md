@@ -1,29 +1,38 @@
 # Better Dialog (β)
 
-A lightweight, flexible modal dialog library powered by the native `<dialog>` element.
+A lightweight, flexible modal library powered by the native `<dialog>` element.
 
-> 🚧 This library is currently in beta. API may change without notice.
+> 🚧 This library is currently in beta. The API may change.
 
 ---
 
 ## ✨ Features
 
-- Uses native `<dialog>` element
-- Simple show/close handling
-- Flexible animation API
-- No dependencies
+- Built on native `<dialog>`
+- Show/close lifecycle hooks
+- Plugin & animation support
+- No built-in styles
+- Zero dependencies
 
 ---
 
-<!-- ## 📦 Installation
+## 📦 Installation
 
 ```bash
-npm install better-dialog
-``` -->
+npm install @haebaragi/better-dialog
+```
 
-<!-- ## 🚀 Usage
+---
 
-### HTML
+## 🔗 Documentation
+
+Full usage examples, plugin guides, and API reference are available at:
+
+👉 [https://better-dialog.haebaragi.net](https://better-dialog.haebaragi.net)
+
+---
+
+## 🧪 Quick Example
 
 ```html
 <button data-better-dialog-show="my-dialog">Open Dialog</button>
@@ -34,25 +43,18 @@ npm install better-dialog
 </dialog>
 ```
 
-### JavaScript
+```ts
+import { BetterDialog } from '@haebaragi/better-dialog';
+import { fadeAnimation } from '@haebaragi/better-dialog/animations';
 
-```javascript
-import { BetterDialog, fade } from 'better-dialog';
-
-const dialog = new BetterDialog('#my-dialog', {
-  animation: fade({ duration: 300 }),
-  on: {
-    show: (item) => console.log('opened', item.id),
-    close: (item) => console.log('closed', item.id),
-  },
+new BetterDialog('#my-dialog', {
+  animation: fadeAnimation({ duration: 300 }),
 });
-``` -->
+```
 
-## API
+---
 
-### `new BetterDialog(target, options)`
+## License
 
-| Param     | Type                                      | Description                     |
-| --------- | ----------------------------------------- | ------------------------------- |
-| `target`  | string / Element / Element\[\] / NodeList | Dialog selector or elements     |
-| `options` | `DialogOptions`                           | Show/close handlers & animation |
+MIT  
+(c) 2025 [@izakikazuho](https://github.com/izakikazuho)
