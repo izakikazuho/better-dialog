@@ -1019,6 +1019,12 @@ bcp-47@^2.1.0:
     is-alphanumerical "^2.0.0"
     is-decimal "^2.0.0"
 
+"better-dialog@github:izakikazuho/better-dialog":
+  version "1.0.0"
+  resolved "https://codeload.github.com/izakikazuho/better-dialog/tar.gz/005491a90ccd70acbc3e7cd9a8cf8baa9c3e8518"
+  dependencies:
+    tua-body-scroll-lock "^1.5.3"
+
 bl@^4.0.3:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/bl/-/bl-4.1.0.tgz#451535264182bec2fbbc83a62ab98cf11d9f7b3a"
@@ -3396,6 +3402,11 @@ tslib@^2.4.0:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
+
+tua-body-scroll-lock@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/tua-body-scroll-lock/-/tua-body-scroll-lock-1.5.3.tgz#3f1464d599aea4734f31e0754088acd42804e3e8"
+  integrity sha512-44W12iqek41kZuTdpEUt3JTUsMx0IxfTajXWfQyMLgzsPaMYUPZLcJkwa4P0x24h5DQ3lYvDuYvphBo4+L0t4w==
 
 tunnel-agent@^0.6.0:
   version "0.6.0"

@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/starlight": "^0.33.0",
     "astro": "^5.5.3",
+    "better-dialog": "github:izakikazuho/better-dialog",
     "sharp": "^0.32.5"
   }
 }
