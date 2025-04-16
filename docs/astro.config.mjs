@@ -14,6 +14,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Better Dialog',
+      favicon: '/favicon.png',
       logo: {
         src: './src/assets/logo.svg',
         replacesTitle: true,
