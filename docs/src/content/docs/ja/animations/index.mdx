@@ -17,8 +17,8 @@ Better Dialog は、モーダルの開閉にアニメーションを付けるた
 ### 使用例
 
 ```ts
-import { BetterDialog } from 'better-dialog';
-import { fadeAnimation } from 'better-dialog/animations';
+import { BetterDialog } from '@haebaragi/better-dialog';
+import { fadeAnimation } from '@haebaragi/better-dialog/animations';
 
 new BetterDialog('#my-dialog', {
   animation: fadeAnimation({ duration: 300 }),
@@ -41,8 +41,8 @@ CSS によるアニメーションを使いたい場合は、`cssAnimation()` �
 ### 使用例
 
 ```ts
-import { BetterDialog } from 'better-dialog';
-import { cssAnimation } from 'better-dialog/animations';
+import { BetterDialog } from '@haebaragi/better-dialog';
+import { cssAnimation } from '@haebaragi/better-dialog/animations';
 
 new BetterDialog('#my-dialog', {
   animation: css({
