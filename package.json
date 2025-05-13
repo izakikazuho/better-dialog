@@ -27,7 +27,8 @@
   "scripts": {
     "build": "vite build && tsc",
     "dev": "vite",
-    "type:only": "tsc --emitDeclarationOnly"
+    "type:only": "tsc --emitDeclarationOnly",
+    "prepublishOnly": "yarn build"
   },
   "author": "izakikazuho",
   "license": "MIT",
