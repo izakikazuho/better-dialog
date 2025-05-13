@@ -13,13 +13,13 @@ export class DialogItem {
   private showHooks: ((dialog: DialogItem) => void)[] = [];
   private closeHooks: ((dialog: DialogItem) => void)[] = [];
 
-  constructor(el: HTMLDialogElement, options: DialogOptions) {
+  constructor(el: HTMLDialogElement, options?: DialogOptions) {
     if (!el) {
       throw new Error('Dialog element not found');
     }
 
     this.el = el;
-    this.options = options;
+    this.options = options || {};
     this.id = el.id;
     this.triggerEls = Array.from(document.querySelectorAll<HTMLElement>(`[data-better-dialog-show="${this.id}"]`));
     this.closeButtonEl = el.querySelector<HTMLElement>('[data-better-dialog-close]');
@@ -107,7 +107,7 @@ export class BetterDialog {
   els: HTMLDialogElement[] = [];
   dialogItems: DialogItem[] = [];
 
-  constructor(target: string | HTMLDialogElement | HTMLDialogElement[] | NodeList, options: DialogOptions) {
+  constructor(target: string | HTMLDialogElement | HTMLDialogElement[] | NodeList, options?: DialogOptions) {
     this.els = this.normalizeTarget(target);
     this.dialogItems = this.els.map((el) => new DialogItem(el, options));
   }
