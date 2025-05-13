@@ -1,6 +1,6 @@
 {
   "name": "@haebaragi/better-dialog",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "dist/better-dialog.cjs",
   "module": "dist/better-dialog.js",
   "types": "dist/index.d.ts",
