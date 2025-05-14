@@ -62,6 +62,7 @@ export class DialogItem {
     });
 
     this.el.addEventListener('click', (e) => {
+      if (e.target !== this.el) return;
       const rect = (e.target as HTMLElement).getBoundingClientRect();
       const isWithinRangeX = e.clientX >= rect.left && e.clientX <= rect.right;
       const isWithinRangeY = e.clientY >= rect.top && e.clientY <= rect.bottom;
