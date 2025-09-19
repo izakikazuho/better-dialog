@@ -5,7 +5,7 @@ export class DialogItem {
   readonly id: string;
   readonly options: DialogOptions;
   readonly triggerEls: HTMLElement[];
-  readonly closeButtonEl: HTMLElement | null;
+  readonly closeButtonEls: HTMLElement[];
   readonly showClass: string;
   isShow: boolean = false;
 
@@ -22,7 +22,7 @@ export class DialogItem {
     this.options = options || {};
     this.id = el.id;
     this.triggerEls = Array.from(document.querySelectorAll<HTMLElement>(`[data-better-dialog-show="${this.id}"]`));
-    this.closeButtonEl = el.querySelector<HTMLElement>('[data-better-dialog-close]');
+    this.closeButtonEls = Array.from(el.querySelectorAll<HTMLElement>('[data-better-dialog-close]'));
     this.showClass = this.options.showClass || 'is-show';
 
     this.options.plugins?.forEach((plugin) => {
@@ -54,8 +54,7 @@ export class DialogItem {
 
   private bindEvents(): void {
     this.triggerEls.forEach((el) => el.addEventListener('click', () => this.show()));
-
-    this.closeButtonEl?.addEventListener('click', () => this.close());
+    this.closeButtonEls.forEach((el) => el.addEventListener('click', () => this.close()));
 
     this.el.addEventListener('cancel', (e) => {
       e.preventDefault();
